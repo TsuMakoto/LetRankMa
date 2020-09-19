@@ -1,0 +1,1 @@
+/home/vagrant/.env/julia/v1.5.0/usr/bin/julia --color=yes --depwarn=no -q -i -- ../bootstrap.jl s %*
