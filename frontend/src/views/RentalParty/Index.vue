@@ -1,9 +1,8 @@
 <template>
-  <v-conteiner>
+  <v-container>
     <v-row class="text-center">
       <v-col v-for="(party, index) in rentalParties.item" :key="index" cols="6">
         <v-card
-          :loading="loading"
           class="mx-auto my-12"
           max-width="374"
           >
@@ -44,7 +43,7 @@
           <v-divider class="mx-4"></v-divider>
 
           <v-card-text>
-            <v-list subheader>
+            <v-list>
 
               <v-list-item
                 v-for="item in partyPokemon.item"
@@ -57,7 +56,6 @@
                 <v-list-item-content>
                   <v-list-item-title v-text="item.name"></v-list-item-title>
                 </v-list-item-content>
-
               </v-list-item>
             </v-list>
           </v-card-text>
@@ -66,7 +64,6 @@
           <v-btn
             color="deep-purple lighten-2"
             text
-            @click="reserve"
             >
             Reserve
           </v-btn>
@@ -74,11 +71,12 @@
         </v-card>
       </v-col>
     </v-row>
-  </v-conteiner>
+  </v-container>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import axios from 'axios'
 
 export interface Dataset {
   rentalParties: RentalParties;
@@ -86,7 +84,7 @@ export interface Dataset {
 }
 
 export interface RentalParty {
-  id: number;
+  id: { value: number };
   name: string;
   image: string;
   generation: number;
@@ -110,18 +108,11 @@ export interface PartyPokemon {
 }
 
 export default Vue.extend({
+  name: 'RentalParties',
+
   data: (): Dataset => ({
     rentalParties: {
-      item: [{
-        id: 1,
-        name: 'party01',
-        image: '/public/img/party/01.png',
-        generation: 6,
-        season: 9,
-        rule: 'シングルバトル',
-        rank: 1,
-        note: '基本選出で余裕'
-      }]
+      item: []
     },
 
     partyPokemon: {
@@ -136,7 +127,15 @@ export default Vue.extend({
         }
       ]
     }
-  })
+  }),
+
+  mounted () {
+    axios
+      .get('/api/rentalparties')
+      .then(resp => {
+        this.rentalParties.item = resp.data
+      })
+  }
 })
 
 </script>
