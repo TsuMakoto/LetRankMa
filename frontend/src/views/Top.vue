@@ -12,7 +12,7 @@
 
       <v-col class="mb-4" cols="12">
         <h1 class="display-2 font-weight-bold mb-3">
-          レッツランクマ
+          らんくま
         </h1>
 
         <p class="subheading font-weight-regular">
@@ -99,6 +99,15 @@ export default Vue.extend({
         indexTitle: '借りる',
         newUrl: '#newRentalUrl',
         newTitle: '公開する'
+      },
+      {
+        title: '開発者ブログ',
+        subtitle: '開発者のポケモん対戦や開発記事',
+        notes: [],
+        indexUrl: '/#',
+        indexTitle: '見る',
+        newUrl: '#newRentalUrl',
+        newTitle: ''
       }
     ]
   })

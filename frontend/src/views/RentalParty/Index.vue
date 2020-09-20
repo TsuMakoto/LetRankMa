@@ -1,15 +1,15 @@
 <template>
   <v-container>
     <v-row class="text-center">
-      <v-col v-for="(party, index) in rentalParties.item" :key="index" cols="6">
+      <v-col v-for="(party, index) in rentalParties.item" :key="index" cols="4">
         <v-card
           class="mx-auto my-12"
           max-width="374"
           >
           <v-img
             height="250"
-            src="party.image"
-            alt="party.image"
+            :src="party.image"
+            :alt="party.image"
             ></v-img>
 
           <v-card-title>{{ party.name }}</v-card-title>
@@ -65,7 +65,7 @@
             color="deep-purple lighten-2"
             text
             >
-            Reserve
+            詳細をみる
           </v-btn>
         </v-card-actions>
         </v-card>
@@ -118,12 +118,28 @@ export default Vue.extend({
     partyPokemon: {
       item: [
         {
-          dotImg: '/public/img/party/01/01.png',
-          name: 'ピカチュウ'
+          dotImg: '/img/parties/01/01.png',
+          name: 'ラブラス'
         },
         {
-          dotImg: '/public/img/party/02/02.png',
-          name: 'ヒトカゲ'
+          dotImg: '/img/parties/01/02.png',
+          name: 'コオリッポ'
+        },
+        {
+          dotImg: '/img/parties/01/03.png',
+          name: 'バイバニラ'
+        },
+        {
+          dotImg: '/img/parties/01/04.png',
+          name: 'ツンベアー'
+        },
+        {
+          dotImg: '/img/parties/01/05.png',
+          name: 'ユキノオー'
+        },
+        {
+          dotImg: '/img/parties/01/06.png',
+          name: 'クレベース'
         }
       ]
     }
@@ -134,6 +150,7 @@ export default Vue.extend({
       .get('/api/rentalparties')
       .then(resp => {
         this.rentalParties.item = resp.data
+        console.log(this.rentalParties.item[0].image)
       })
   }
 })
