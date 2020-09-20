@@ -38,20 +38,20 @@
     </v-app-bar>
 
     <v-main>
-      <HelloWorld/>
+      <Top/>
     </v-main>
   </v-app>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+import Top from '@/components/Top.vue'
 
 export default Vue.extend({
   name: 'App',
 
   components: {
-    HelloWorld
+    Top
   },
 
   data: () => ({
