@@ -32,6 +32,7 @@ using Genie
 const ROOT_PATH = pwd()
 
 push!(LOAD_PATH, ROOT_PATH, "src")
+push!(LOAD_PATH, ROOT_PATH, "app", "Api.jl")
 
 Genie.load(context = @__MODULE__)
 Genie.run(server = EARLYBINDING)

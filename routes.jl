@@ -1,5 +1,7 @@
 using Genie.Router
+import Api: IndexRentalParty
 
-route("/") do
-  serve_static_file("welcome.html")
-end
+route("/api/rentalparties",
+      IndexRentalParty.call,
+      method=GET,
+      named=:index_categories)
