@@ -3,7 +3,7 @@
     <v-row class="text-center">
       <v-col cols="12">
         <v-img
-          :src="require('../assets/logo.svg')"
+          :src="require('../assets/koratta.jpg')"
           class="my-3"
           contain
           height="200"
@@ -95,7 +95,7 @@ export default Vue.extend({
           { url: '#whatIsRental', text: 'レンタルパーティとは？' },
           { url: '#registedRental', text: 'レンタルパーティの登録方法について' }
         ],
-        indexUrl: '#indexRentalUrl',
+        indexUrl: '/rentalparties',
         indexTitle: '借りる',
         newUrl: '#newRentalUrl',
         newTitle: '公開する'
